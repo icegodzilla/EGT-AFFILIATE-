@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EGT Affiliate Marketing | Turn Your Phone Into a Money Machine</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#080808;color:#f0f0f0;font-family:'Manrope',sans-serif;overflow-x:hidden}
+
+/* POPUP */
+#popup{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.96);display:flex;align-items:center;justify-content:center;padding:20px}
+#popup.gone{display:none}
+.pbox{background:#111;border:1px solid rgba(245,166,35,0.35);border-radius:20px;padding:36px 28px;width:100%;max-width:400px;text-align:center}
+.pbadge{display:inline-block;background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.3);color:#f5a623;padding:5px 16px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+.ptitle{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1.1;margin-bottom:10px}
+.ptitle span{color:#f5a623}
+.psub{font-size:14px;color:#888;line-height:1.6;margin-bottom:24px}
+.pfield{margin-bottom:14px;text-align:left}
+.pfield label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.pfield label span{color:#f5a623}
+.pfield input{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(245,166,35,0.2);border-radius:10px;padding:13px 15px;color:#f0f0f0;font-family:'Manrope',sans-serif;font-size:14px;outline:none}
+.pfield input:focus{border-color:#f5a623}
+.pfield input::placeholder{color:#555}
+.perr{color:#ff6b6b;font-size:12px;margin-top:4px;display:none}
+.psubmit{width:100%;background:#f5a623;color:#000;border:none;padding:15px;border-radius:10px;font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;cursor:pointer;margin-top:6px}
+.pprivacy{font-size:11px;color:#444;margin-top:12px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:rgba(8,8,8,0.95);border-bottom:1px solid rgba(245,166,35,0.1)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#f5a623;letter-spacing:2px}
+.nav-btn{background:#f5a623;color:#000;border:none;padding:10px 22px;border-radius:6px;font-family:'Manrope',sans-serif;font-weight:800;font-size:13px;cursor:pointer;text-decoration:none}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 24px 80px;background:radial-gradient(ellipse at 50% 0%,rgba(245,166,35,0.1) 0%,transparent 65%)}
+.badge{display:inline-block;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);color:#f5a623;padding:6px 18px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,11vw,92px);line-height:1;letter-spacing:2px;margin-bottom:18px}
+.hero h1 span{color:#f5a623}
+.hero p{font-size:clamp(15px,2.5vw,18px);color:#aaa;max-width:540px;line-height:1.7;margin-bottom:32px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-gold{background:#f5a623;color:#000;border:none;padding:16px 34px;border-radius:8px;font-weight:800;font-size:15px;cursor:pointer;text-decoration:none;font-family:'Manrope',sans-serif}
+.btn-outline{background:transparent;color:#f5a623;border:1px solid rgba(245,166,35,0.4);padding:16px 34px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;font-family:'Manrope',sans-serif}
+
+/* SECTIONS */
+.sec{padding:80px 24px;max-width:900px;margin:0 auto}
+.sec-full{padding:80px 24px;background:#111;border-top:1px solid rgba(245,166,35,0.08);border-bottom:1px solid rgba(245,166,35,0.08)}
+.sec-full .inner{max-width:900px;margin:0 auto}
+.slabel{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#f5a623;margin-bottom:10px}
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,56px);line-height:1.1;margin-bottom:14px}
+.stitle span{color:#f5a623}
+.ssub{color:#999;font-size:16px;line-height:1.7;max-width:600px}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(245,166,35,0.2),transparent)}
+
+/* VIDEO */
+.video-wrap{border-radius:16px;overflow:hidden;margin-top:36px;border:1px solid rgba(245,166,35,0.2)}
+.video-wrap iframe{width:100%;aspect-ratio:16/9;display:block;border:none}
+
+/* QA */
+.qa-wrap{margin-top:48px}
+.qa-title{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#f5a623;margin-bottom:16px}
+.qa-item{background:#1a1a1a;border:1px solid rgba(245,166,35,0.1);border-radius:10px;padding:16px 20px;cursor:pointer;margin-bottom:10px}
+.qa-q{font-weight:700;font-size:14px;display:flex;justify-content:space-between;align-items:center}
+.qa-q .ico{color:#f5a623;font-size:18px;transition:transform 0.2s}
+.qa-a{display:none;margin-top:10px;color:#aaa;font-size:14px;line-height:1.7}
+.qa-item.open .qa-a{display:block}
+.qa-item.open .ico{transform:rotate(45deg)}
+
+/* COMMENTS */
+.cbox{background:#1a1a1a;border:1px solid rgba(245,166,35,0.15);border-radius:12px;padding:20px;margin-top:28px}
+.cbox textarea,.cbox input{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(245,166,35,0.15);border-radius:8px;padding:12px;color:#f0f0f0;font-family:'Manrope',sans-serif;font-size:14px;outline:none;margin-bottom:10px}
+.cbox textarea{resize:none;height:80px}
+.cbtn{background:#f5a623;color:#000;border:none;padding:12px 26px;border-radius:8px;font-weight:800;font-size:14px;cursor:pointer;font-family:'Manrope',sans-serif}
+.clist{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.ccard{background:rgba(245,166,35,0.05);border:1px solid rgba(245,166,35,0.1);border-radius:8px;padding:14px 16px}
+.cname{font-weight:700;font-size:13px;color:#f5a623;margin-bottom:4px}
+.ctext{font-size:14px;color:#ccc;line-height:1.6}
+
+/* STEPS */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:40px}
+.step-card{background:#111;border:1px solid rgba(245,166,35,0.1);border-radius:14px;padding:28px 24px}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(245,166,35,0.15);line-height:1;margin-bottom:8px}
+.step-card h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.step-card p{font-size:14px;color:#888;line-height:1.6}
+
+/* TESTIMONIALS */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:40px}
+.tcard{background:#1a1a1a;border:1px solid rgba(245,166,35,0.12);border-radius:14px;padding:24px}
+.stars{color:#f5a623;font-size:16px;margin-bottom:12px;letter-spacing:2px}
+.ttext{font-size:14px;color:#bbb;line-height:1.7;margin-bottom:16px;font-style:italic}
+.tauthor{display:flex;align-items:center;gap:12px}
+.tavatar{width:40px;height:40px;background:linear-gradient(135deg,#f5a623,#c77d00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#000}
+.tname{font-weight:700;font-size:14px}
+.tloc{font-size:12px;color:#888}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px;align-items:center}
+@media(max-width:640px){.about-grid{grid-template-columns:1fr}}
+.fitem{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+.ficon{width:36px;height:36px;flex-shrink:0;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.ftext h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.ftext p{font-size:13px;color:#888;line-height:1.5}
+.avis{background:linear-gradient(135deg,rgba(245,166,35,0.08),rgba(245,166,35,0.02));border:1px solid rgba(245,166,35,0.15);border-radius:20px;padding:36px 28px;text-align:center}
+.abig{font-family:'Bebas Neue',sans-serif;font-size:64px;color:#f5a623;line-height:1}
+.alabel{font-size:13px;color:#888;margin-top:4px}
+.adiv{margin:24px 0;height:1px;background:rgba(245,166,35,0.12)}
+
+/* PRICING */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px;margin-top:44px}
+.pcard{background:#111;border:1px solid rgba(245,166,35,0.12);border-radius:18px;padding:28px 22px;position:relative}
+.pcard.feat{border-color:#f5a623;background:linear-gradient(135deg,rgba(245,166,35,0.08),#111);box-shadow:0 0 40px rgba(245,166,35,0.1)}
+.pbadge2{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#f5a623;color:#000;font-size:11px;font-weight:800;padding:4px 16px;border-radius:100px;letter-spacing:1px;white-space:nowrap}
+.ptype{font-size:11px;font-weight:700;letter-spacing:2px;color:#f5a623;text-transform:uppercase;margin-bottom:10px}
+.pamount{font-family:'Bebas Neue',sans-serif;font-size:52px;color:#f0f0f0;line-height:1;margin-bottom:4px}
+.pamount span{font-size:22px;color:#f5a623}
+.pnote{font-size:13px;color:#777;margin-bottom:20px}
+.pfeatures{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.pfeatures li{font-size:14px;color:#ccc;display:flex;gap:10px}
+.pfeatures li::before{content:'✓';color:#00c853;font-weight:800;flex-shrink:0}
+.plan-btn{width:100%;padding:13px;border-radius:10px;border:none;font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;cursor:pointer}
+.plan-btn.gold{background:#f5a623;color:#000}
+.plan-btn.outline{background:transparent;color:#f5a623;border:1px solid rgba(245,166,35,0.4)}
+
+/* PAY */
+.paygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px}
+.paycard{background:#111;border:1px solid rgba(245,166,35,0.12);border-radius:16px;padding:28px 24px}
+.paycard h3{font-size:18px;font-weight:800;margin-bottom:16px;color:#f5a623}
+.paydetail{font-size:14px;color:#ccc;margin-bottom:8px}
+.paybtn{display:inline-block;margin-top:14px;background:#f5a623;color:#000;padding:12px 22px;border-radius:8px;font-weight:800;font-size:14px;text-decoration:none;font-family:'Manrope',sans-serif}
+
+/* PLAN MODAL */
+#plan-modal{display:none;position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,0.93);align-items:center;justify-content:center;padding:20px}
+#plan-modal.show{display:flex}
+.pm-box{background:#111;border:1px solid rgba(245,166,35,0.35);border-radius:20px;padding:32px 24px;width:100%;max-width:400px;position:relative;max-height:90vh;overflow-y:auto}
+.pm-close{position:absolute;top:14px;right:16px;background:transparent;border:none;color:#888;font-size:22px;cursor:pointer}
+
+/* FINAL CTA */
+.fcta{padding:100px 24px;text-align:center;background:radial-gradient(ellipse at 50% 100%,rgba(245,166,35,0.1) 0%,transparent 65%);border-top:1px solid rgba(245,166,35,0.08)}
+.fcta h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,8vw,70px);letter-spacing:2px;margin-bottom:14px}
+.fcta h2 span{color:#f5a623}
+.fcta p{color:#888;font-size:16px;max-width:460px;margin:0 auto 32px;line-height:1.7}
+.urgency{display:inline-block;background:rgba(200,50,50,0.12);border:1px solid rgba(200,50,50,0.3);color:#ff6b6b;padding:8px 20px;border-radius:100px;font-size:13px;font-weight:700;margin-bottom:24px}
+
+footer{padding:28px 24px;text-align:center;border-top:1px solid rgba(245,166,35,0.08);color:#444;font-size:13px}
+footer span{color:#f5a623}
+
+@media(max-width:480px){.hero-btns{flex-direction:column;align-items:center}.btn-gold,.btn-outline{width:100%;text-align:center}}
+</style>
+</head>
+<body>
+
+<!-- POPUP -->
+<div id="popup">
+  <div class="pbox">
+    <div style="font-size:44px;margin-bottom:12px">🎯</div>
+    <div class="pbadge">🔥 Live Webinar</div>
+    <div class="ptitle">Join The <span>EGT Affiliate</span> Class</div>
+    <p class="psub">Enter your details below to access the free training and join the webinar immediately.</p>
+    <div class="pfield">
+      <label>Enter your First Name <span>*</span></label>
+      <input type="text" id="pname" placeholder="FIRST NAME"/>
+      <div class="perr" id="nerr">Please enter your first name.</div>
+    </div>
+    <div class="pfield">
+      <label>Enter your Email Address to Join <span>*</span></label>
+      <input type="email" id="pemail" placeholder="EMAIL ADDRESS"/>
+      <div class="perr" id="eerr">Please enter a valid email address.</div>
+    </div>
+    <button class="psubmit" id="psubmit" onclick="joinNow()">JOIN NOW 🚀</button>
+    <p class="pprivacy">🔒 Your information is safe. We never share your details.</p>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">EGT</div>
+  <a href="#pricing" class="nav-btn">Enroll Now</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">🔥 Limited Slots Available</div>
+  <h1>Turn Your Phone Into<br/><span>A Money Machine</span></h1>
+  <p>Join the EGT Affiliate Marketing course and start earning real income from your phone — no experience needed, no office required.</p>
+  <div class="hero-btns">
+    <a href="#video" class="btn-gold">Watch Free Training ▶</a>
+    <a href="#pricing" class="btn-outline">See Pricing →</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- VIDEO -->
+<div class="sec-full" id="video">
+  <div class="inner">
+    <div class="slabel">Free Training</div>
+    <div class="stitle">Watch This <span>Before You Decide</span></div>
+    <p class="ssub">This video breaks down exactly how the EGT Affiliate Marketing system works and how you can start earning within days.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/gb5hxWngbMQ" allowfullscreen loading="lazy" title="EGT Affiliate Marketing Training"></iframe>
+    </div>
+
+    <!-- QA -->
+    <div class="qa-wrap">
+      <div class="qa-title">❓ Frequently Asked Questions</div>
+      <div class="qa-item" onclick="this.classList.toggle('open')">
+        <div class="qa-q">Do I need experience to start? <span class="ico">+</span></div>
+        <div class="qa-a">No experience is needed at all. The EGT course is designed from the ground up for complete beginners. We walk you through every single step.</div>
+      </div>
+      <div class="qa-item" onclick="this.classList.toggle('open')">
+        <div class="qa-q">How soon can I start earning? <span class="ico">+</span></div>
+        <div class="qa-a">Most of our students start seeing results within their first 7–14 days after implementing what they learn. Results depend on your effort and consistency.</div>
+      </div>
+      <div class="qa-item" onclick="this.classList.toggle('open')">
+        <div class="qa-q">Do I need a laptop? <span class="ico">+</span></div>
+        <div class="qa-a">No! Everything in this course can be done with just your smartphone. That's the beauty of the EGT system.</div>
+      </div>
+      <div class="qa-item" onclick="this.classList.toggle('open')">
+        <div class="qa-q">Is there support after I enroll? <span class="ico">+</span></div>
+        <div class="qa-a">Yes. Once you enroll you get access to our support community where you can ask questions and get guidance whenever you need it.</div>
+      </div>
+    </div>
+
+    <!-- COMMENTS -->
+    <div class="cbox">
+      <p style="font-size:14px;font-weight:700;margin-bottom:14px;color:#f5a623">💬 Ask a Question or Leave a Comment</p>
+      <input type="text" id="cname" placeholder="Your name"/>
+      <textarea id="ctext" placeholder="Type your question or comment here..."></textarea>
+      <button class="cbtn" onclick="postComment()">Post Comment</button>
+      <div class="clist" id="clist"></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW TO START -->
+<section class="sec" id="how-to-start">
+  <div class="slabel">The Process</div>
+  <div class="stitle">How to Begin <span>Affiliate Marketing</span></div>
+  <p class="ssub">We break it down into simple steps so you never feel lost or overwhelmed.</p>
+  <div class="steps-grid">
+    <div class="step-card"><div class="step-num">01</div><h3>Enroll in the Course</h3><p>Pay once and get instant access to all training materials, guides, and resources.</p></div>
+    <div class="step-card"><div class="step-num">02</div><h3>Learn the System</h3><p>Follow our step-by-step video modules. No skipping — the order matters and it works.</p></div>
+    <div class="step-card"><div class="step-num">03</div><h3>Pick Your Niche</h3><p>We help you identify the right products to promote based on your audience and interests.</p></div>
+    <div class="step-card"><div class="step-num">04</div><h3>Start Promoting</h3><p>Use our proven templates and scripts to start promoting on WhatsApp, Instagram, and TikTok.</p></div>
+    <div class="step-card"><div class="step-num">05</div><h3>Earn Commissions</h3><p>Every sale you make earns you a commission. The more you promote, the more you earn.</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<div class="sec-full">
+  <div class="inner">
+    <div class="slabel">Real Results</div>
+    <div class="stitle">What Our <span>Students Say</span></div>
+    <div class="tgrid">
+      <div class="tcard"><div class="stars">★★★★★</div><p class="ttext">"I was skeptical at first but within 2 weeks I made my first 15k. EGT changed my life completely. I now do this full time."</p><div class="tauthor"><div class="tavatar">A</div><div><div class="tname">Amaka O.</div><div class="tloc">Lagos, Nigeria</div></div></div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="ttext">"I had zero knowledge about affiliate marketing. This course made everything so clear. I earned 30k in my first month."</p><div class="tauthor"><div class="tavatar">K</div><div><div class="tname">Kelvin M.</div><div class="tloc">Abuja, Nigeria</div></div></div></div>
+      <div class="tcard"><div class="stars">★★★★★</div><p class="ttext">"Best investment I made this year. The support from the community alone is worth it. I'm now teaching my sister too!"</p><div class="tauthor"><div class="tavatar">F</div><div><div class="tname">Fatima B.</div><div class="tloc">Kano, Nigeria</div></div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="slabel">About the Course</div>
+  <div class="stitle">Everything You Get With <span>EGT</span></div>
+  <p class="ssub">This is not just a course — it's a complete system designed to take you from zero to earning.</p>
+  <div class="about-grid">
+    <div>
+      <div class="fitem"><div class="ficon">📱</div><div class="ftext"><h4>Phone-Based Training</h4><p>Everything is optimized for your smartphone. No laptop needed to learn or earn.</p></div></div>
+      <div class="fitem"><div class="ficon">🎯</div><div class="ftext"><h4>Proven Marketing Scripts</h4><p>Copy-paste scripts that convert leads into buyers on WhatsApp and social media.</p></div></div>
+      <div class="fitem"><div class="ficon">📦</div><div class="ftext"><h4>Product Selection Guide</h4><p>Learn exactly which affiliate products pay the highest commissions in Nigeria.</p></div></div>
+      <div class="fitem"><div class="ficon">👥</div><div class="ftext"><h4>Private Community Access</h4><p>Join a growing community of EGT students for support, tips, and accountability.</p></div></div>
+      <div class="fitem"><div class="ficon">♾️</div><div class="ftext"><h4>Lifetime Access</h4><p>Pay once and access all current and future course updates forever.</p></div></div>
+    </div>
+    <div class="avis">
+      <div class="abig">500+</div><div class="alabel">Students Already Enrolled</div>
+      <div class="adiv"></div>
+      <div class="abig" style="font-size:46px">₦100k+</div><div class="alabel">Average Monthly Earnings of Top Students</div>
+      <div class="adiv"></div>
+      <div class="abig" style="font-size:46px">7 Days</div><div class="alabel">Average Time to First Commission</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRICING -->
+<section class="sec" id="pricing">
+  <div style="text-align:center">
+    <div class="slabel">Pricing</div>
+    <div class="stitle">Choose Your <span>Payment Plan</span></div>
+    <p class="ssub" style="margin:0 auto">All plans give you full access to everything. Choose what works for your budget.</p>
+  </div>
+  <div class="pgrid">
+    <div class="pcard">
+      <div class="ptype">Plan A</div>
+      <div class="pamount"><span>₦</span>1,000</div>
+      <div class="pnote">× 10 payments + ₦500 once</div>
+      <ul class="pfeatures"><li>Full course access</li><li>Marketing scripts & templates</li><li>Community access</li><li>Email support</li><li>Pay weekly at your pace</li></ul>
+      <button class="plan-btn outline" onclick="selectPlan('A')">Choose Plan A</button>
+    </div>
+    <div class="pcard">
+      <div class="ptype">Plan B</div>
+      <div class="pamount"><span>₦</span>2,000</div>
+      <div class="pnote">× 5 payments + ₦500 once</div>
+      <ul class="pfeatures"><li>Full course access</li><li>Marketing scripts & templates</li><li>Community access</li><li>Email support</li><li>Complete faster, earn faster</li></ul>
+      <button class="plan-btn outline" onclick="selectPlan('B')">Choose Plan B</button>
+    </div>
+    <div class="pcard">
+      <div class="ptype">Plan C</div>
+      <div class="pamount"><span>₦</span>5,000</div>
+      <div class="pnote">× 2 payments + ₦500 once</div>
+      <ul class="pfeatures"><li>Full course access</li><li>Marketing scripts & templates</li><li>Community access</li><li>Priority support</li><li>Done in just 2 payments</li></ul>
+      <button class="plan-btn outline" onclick="selectPlan('C')">Choose Plan C</button>
+    </div>
+    <div class="pcard feat">
+      <div class="pbadge2">BEST DEAL — PAY ONCE</div>
+      <div class="ptype">Full Payment</div>
+      <div class="pamount"><span>₦</span>10,500</div>
+      <div class="pnote">one-time payment, lifetime access</div>
+      <ul class="pfeatures"><li>Full course access</li><li>Marketing scripts & templates</li><li>Community access</li><li>Priority support</li><li>Lifetime updates FREE</li><li>Bonus: 1-on-1 onboarding call</li></ul>
+      <button class="plan-btn gold" onclick="selectPlan('Full')">Pay in Full — Best Deal</button>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO PAY -->
+<div class="sec-full" id="how-to-pay">
+  <div class="inner">
+    <div style="text-align:center">
+      <div class="slabel">Payment</div>
+      <div class="stitle">How to <span>Pay</span></div>
+      <p class="ssub" style="margin:0 auto">Choose your preferred payment method. After payment send your proof to get instant access.</p>
+    </div>
+    <div class="paygrid">
+      <div class="paycard">
+        <div style="font-size:32px;margin-bottom:12px">💳</div>
+        <h3>Pay via Paystack</h3>
+        <p class="paydetail">Fast, secure and instant. Click the button below to pay with your card or bank transfer through Paystack.</p>
+        <a href="#" class="paybtn" onclick="alert('Paystack link coming soon! Please use bank transfer for now.');return false;">Pay with Paystack →</a>
+      </div>
+      <div class="paycard">
+        <div style="font-size:32px;margin-bottom:12px">🏦</div>
+        <h3>Bank Transfer</h3>
+        <p class="paydetail"><strong>Bank:</strong> Palmpay</p>
+        <p class="paydetail"><strong>Account Number:</strong> 8165846765</p>
+        <p class="paydetail"><strong>Account Name:</strong> Joy Uchechi David</p>
+        <p class="paydetail" style="margin-top:12px;color:#777;font-size:13px">After transfer, send your payment screenshot to us on WhatsApp to get instant access.</p>
+        <a href="https://wa.me/2349032835085" target="_blank" class="paybtn">Send Proof on WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="fcta">
+  <div class="urgency">⚡ Only 20 Slots Left This Month</div>
+  <h2>Ready to Start <span>Earning?</span></h2>
+  <p>Join hundreds of Nigerians already making real money with affiliate marketing. Your journey starts today.</p>
+  <a href="#how-to-pay" class="btn-gold" style="font-size:17px;padding:18px 48px">Enroll Now — Start Today 🚀</a>
+</div>
+
+<!-- PLAN MODAL -->
+<div id="plan-modal">
+  <div class="pm-box">
+    <button class="pm-close" onclick="closeModal()">✕</button>
+    <div id="pm-content"></div>
+  </div>
+</div>
+
+<footer><p>© 2026 <span>EGT Affiliate Marketing</span>. All rights reserved.</p></footer>
+
+<script>
+// POPUP
+async function joinNow() {
+  var name = document.getElementById('pname').value.trim();
+  var email = document.getElementById('pemail').value.trim();
+  var nerr = document.getElementById('nerr');
+  var eerr = document.getElementById('eerr');
+  nerr.style.display = 'none';
+  eerr.style.display = 'none';
+  var ok = true;
+  if (!name) { nerr.style.display = 'block'; ok = false; }
+  if (!email || email.indexOf('@') < 0) { eerr.style.display = 'block'; ok = false; }
+  if (!ok) return;
+  var btn = document.getElementById('psubmit');
+  btn.textContent = 'Joining...';
+  btn.disabled = true;
+  try {
+    await fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'api-key': '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' },
+      body: JSON.stringify({ email: email, attributes: { FIRSTNAME: name }, listIds: [2], updateEnabled: true })
+    });
+  } catch(e) {}
+  document.getElementById('popup').classList.add('gone');
+}
+
+// PLAN MODAL
+var planData = {
+  A: { title: 'Plan A', first: '₦1,500', note: 'Pay ₦1,000 every week for 10 weeks + ₦500 registration fee (paid once today).', rows: [['Registration Fee (once)','₦500'],['First Installment','₦1,000'],['Total to Pay Today','₦1,500']] },
+  B: { title: 'Plan B', first: '₦2,500', note: 'Pay ₦2,000 for 5 times + ₦500 registration fee (paid once today).', rows: [['Registration Fee (once)','₦500'],['First Installment','₦2,000'],['Total to Pay Today','₦2,500']] },
+  C: { title: 'Plan C', first: '₦5,500', note: 'Pay ₦5,000 twice + ₦500 registration fee (paid once today).', rows: [['Registration Fee (once)','₦500'],['First Installment','₦5,000'],['Total to Pay Today','₦5,500']] },
+  Full: { title: 'Full Payment', first: '₦10,500', note: 'Pay once and get lifetime access, priority support, and a FREE 1-on-1 onboarding call.', rows: [['Full Course Fee','₦10,500'],['Registration Fee','Included'],['Total to Pay','₦10,500']] }
+};
+
+function selectPlan(type) {
+  var p = planData[type];
+  var rows = p.rows.map(function(r){ return '<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05)"><span style="color:#aaa;font-size:14px">'+r[0]+'</span><span style="color:'+(r[0].includes('Total')||r[0].includes('Full')?'#f5a623':'#fff')+';font-weight:700;font-size:14px">'+r[1]+'</span></div>'; }).join('');
+  document.getElementById('pm-content').innerHTML =
+    '<div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#f5a623;text-transform:uppercase;margin-bottom:8px">Payment Instructions</div>'+
+    '<div style="font-family:Bebas Neue,sans-serif;font-size:26px;margin-bottom:18px">'+p.title+' Selected</div>'+
+    '<div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.15);border-radius:12px;padding:16px;margin-bottom:14px">'+rows+'</div>'+
+    '<p style="font-size:13px;color:#888;line-height:1.6;margin-bottom:18px">📌 '+p.note+'</p>'+
+    '<div style="background:rgba(245,166,35,0.06);border:1px solid rgba(245,166,35,0.15);border-radius:12px;padding:16px;margin-bottom:18px">'+
+    '<div style="font-size:13px;font-weight:700;color:#f5a623;margin-bottom:10px">🏦 Send Payment To:</div>'+
+    '<div style="font-size:14px;color:#ccc;margin-bottom:5px"><strong style="color:#fff">Bank:</strong> Palmpay</div>'+
+    '<div style="font-size:14px;color:#ccc;margin-bottom:5px"><strong style="color:#fff">Account Number:</strong> 8165846765</div>'+
+    '<div style="font-size:14px;color:#ccc;margin-bottom:10px"><strong style="color:#fff">Account Name:</strong> Joy Uchechi David</div>'+
+    '<div style="font-size:13px;color:#f5a623;font-weight:700;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06)">Amount to pay now: '+p.first+'</div>'+
+    '</div>'+
+    '<a href="https://wa.me/2349032835085?text=Hello%2C+I+just+made+payment+for+'+encodeURIComponent(p.title)+'+EGT+Affiliate+Marketing+Course.+Please+find+my+proof+of+payment+attached." target="_blank" style="display:block;width:100%;background:#f5a623;color:#000;padding:15px;border-radius:10px;font-weight:800;font-size:15px;text-align:center;text-decoration:none">Send Payment Proof on WhatsApp →</a>';
+  document.getElementById('plan-modal').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('plan-modal').classList.remove('show');
+}
+
+// COMMENTS
+var comments = [
+  { name: 'Blessing A.', text: 'This course is the real deal! Already made my first sale 🙏' },
+  { name: 'Emeka C.', text: 'Can I do this with just WhatsApp? No Instagram?' }
+];
+function renderComments() {
+  document.getElementById('clist').innerHTML = comments.map(function(c){ return '<div class="ccard"><div class="cname">'+c.name+'</div><div class="ctext">'+c.text+'</div></div>'; }).join('');
+}
+function postComment() {
+  var n = document.getElementById('cname').value.trim();
+  var t = document.getElementById('ctext').value.trim();
+  if (!n || !t) { alert('Please enter your name and comment.'); return; }
+  comments.unshift({ name: n, text: t });
+  renderComments();
+  document.getElementById('cname').value = '';
+  document.getElementById('ctext').value = '';
+}
+renderComments();
+</script>
+</body>
+</html>
